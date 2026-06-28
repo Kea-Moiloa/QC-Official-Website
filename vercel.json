@@ -1,5 +1,5 @@
 {
-  "buildCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm build",
+  "buildCommand": "NODE_OPTIONS='--max-old-space-size=4096' npm install && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "echo 'Skipping default install'"
