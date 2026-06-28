@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 30 35% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 30% 94%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 30 10% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 30 35% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 30 35% 59%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 8% 5%;
+    --foreground: 36 33% 95%;
+    --card: 20 8% 10%;
+    --card-foreground: 36 33% 95%;
+    --popover: 20 8% 10%;
+    --popover-foreground: 36 33% 95%;
+    --primary: 30 35% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 20 8% 15%;
+    --secondary-foreground: 36 33% 95%;
+    --muted: 20 5% 18%;
+    --muted-foreground: 30 5% 55%;
+    --accent: 30 35% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 8% 16%;
+    --input: 20 8% 16%;
+    --ring: 30 35% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#c4956a] text-white text-xs font-semibold uppercase tracking-[1.5px] rounded transition-all duration-300 cursor-pointer border-none hover:bg-[#a87d55] hover:-translate-y-0.5 hover:shadow-lg;
+  }
+  .btn-outline {
+    @apply bg-transparent text-foreground border-[1.5px] border-border hover:bg-foreground hover:text-background hover:border-foreground;
+  }
+  .section-container {
+    @apply max-w-[1400px] mx-auto px-6 lg:px-8;
+  }
+  .page-enter {
+    animation: fadeIn 0.5s ease forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-background; }
+::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground; }
+
+/* Selection */
+::selection {
+  @apply bg-[#c4956a]/30 text-foreground;
+}
