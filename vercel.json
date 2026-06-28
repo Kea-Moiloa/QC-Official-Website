@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd app && corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm build",
+  "outputDirectory": "app/dist",
+  "framework": "vite",
+  "installCommand": "echo 'Skipping default install'"
+}
